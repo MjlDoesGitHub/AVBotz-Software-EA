@@ -17,7 +17,7 @@ int minCoins(int values[],int y,int x) {
             if(z>=values[i] && (change[z-values[i]]+1) < min)
                 min = change[z-values[i]]+1;
         }
-        //Output the least amount of coins to match our input using variable z
+        // utput the least amount of coins to match our input using variable z
         change[z] = min;
     }
     return change[x];
@@ -28,7 +28,7 @@ int main()
 {
     //Open Input File "coins.in"
     ifstream inFile;
-    inFile.open("coins.in");
+    inFile.open("coins2.in");
 
     //Check For Error
     if(inFile.fail()) {
@@ -38,20 +38,32 @@ int main()
         cerr<< "File Successfully Opened" << endl;
     }
 
-    //Define Input Coin Value as "x"
+    //Define Amount of Dollars as "x" and coin inputs as variables "a-d"
     float x;
     inFile >> x;
-    cout << "Input Coin Value: " << x << " cents" << endl;
+    cout << "Amount of Dollars: " << x << " dollars" << endl;
+    int a;
+    inFile >> a;
+    cout << "Input Coin Value #1: " << a << " coins" << endl;
+    int b;
+    inFile >> b;
+    cout << "Input Coin Value #2: " << b << " coins" << endl;
+    int c;
+    inFile >> c;
+    cout << "Input Coin Value #3: " << c << " coins" << endl;
+    int d;
+    inFile >> d;
+    cout << "Input Coin Value #4: " << d << " coins" << endl;
 
     //Work with coins
-    int values[] = {1,5,10,25}; //Use a set of denominations (values of coins we can use)
+    int values[] = {a,b,c,d}; //Use a set of denominations (values of coins we can use)
     int n = sizeof(values)/sizeof(values[0]);
     int min = minCoins(values,n,x);
     cout<<"\nMin no. of coins required: " << min; cout <<endl;
 
     //Write final output to file "coins.out"
     ofstream outFile;
-    outFile.open("coins.out");
+    outFile.open("coins2.out");
     outFile << min;
     outFile.close();
 
