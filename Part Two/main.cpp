@@ -23,7 +23,6 @@ int minCoins(int values[],int y,int x) {
     return change[x];
 }
 
-
 int main()
 {
     //Open Input File "coins.in"
@@ -56,6 +55,4 @@ int main()
     outFile.close();
 
     return 0;
-
-
 }
