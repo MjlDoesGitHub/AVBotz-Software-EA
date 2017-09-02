@@ -25,7 +25,7 @@ int minCoins(int values[],int y,int x) {
 
 int main()
 {
-    //Open Input File "coins.in"
+    //Open Input File "coins2.in"
     ifstream inFile;
     inFile.open("coins2.in");
 
@@ -60,7 +60,7 @@ int main()
     int min = minCoins(values,n,x);
     cout<<"\nMin no. of coins required: " << min; cout <<endl;
 
-    //Write final output to file "coins.out"
+    //Write final output to file "coins2.out"
     ofstream outFile;
     outFile.open("coins2.out");
     outFile << min;
