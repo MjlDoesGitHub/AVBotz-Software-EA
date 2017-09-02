@@ -1,0 +1,4 @@
+Part One: 
+Our current modeling system is based on Monte Carlo Localization (MCL). Write a brief description on how MCL works. Your response should be less than a page. 
+
+The Monte Carlo Localization is a type of algorithm that is programmed to navigate the robot through its environment using a particle filter. The robot senses and responds to its environment by determining their movement using its own sensors. The robot guesses randomly of where it will navigate which is defined as particles. Every different particle describes a future scenario. The robot keeps on generating guesses until it finds the ones that are most consistent. 
