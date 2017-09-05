@@ -4,23 +4,22 @@
 #include <fstream>
 #include <string>
 #include <stdlib.h>
-#define INF 9999
 
 using namespace std;
 
-int minCoins(int values[],int y,int x) {
+int minimalCoins(int values[],int y,int x) {
     //Using array to output the minimum amount of coins that is required for the input
     int change[x+1];
     change[0] = 0;
     int i,z;
     for(z=1;z<=x;z++) {
-        int min = INF;
+        int minimal = 9999;
         for(i=0;i<y;i++) {
-            if(z>=values[i] && (change[z-values[i]]+1) < min)
-                min = change[z-values[i]]+1;
+            if(z>=values[i] && (change[z-values[i]]+1) < minimal)
+                minimal = change[z-values[i]]+1;
         }
         //Output the least amount of coins to match our input using variable z
-        change[z] = min;
+        change[z] = minimal;
     }
     return change[x];
 }
@@ -47,13 +46,13 @@ int main()
     //Work with coins
     int values[] = {1,5,10,25}; //Use a set of denominations (values of coins we can use)
     int n = sizeof(values)/sizeof(values[0]);
-    int min = minCoins(values,n,x);
-    cout<<"\nMin no. of coins required: " << min; cout <<endl;
+    int minimal = minimalCoins(values,n,x);
+    cout<<"\nMinimal useage of coins required: " << minimal; cout <<endl;
 
     //Write final output to file "coins.out"
     ofstream outFile;
     outFile.open("coins.out");
-    outFile << min;
+    outFile << minimal;
     outFile.close();
 
     return 0;
