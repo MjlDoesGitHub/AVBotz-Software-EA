@@ -44,7 +44,7 @@ int main()
     cout << "Input Coin Value: " << x << " cents" << endl;
 
     //Work with coins
-    int values[] = {1,5,10,25}; //Use a set of denominations (values of coins we can use)
+    int values[] = {1,5,10,25}; //Use a set of coin values we can use
     int n = sizeof(values)/sizeof(values[0]);
     int minimal = minimalCoins(values,n,x);
     cout<<"\nMinimal useage of coins required: " << minimal; cout <<endl;
