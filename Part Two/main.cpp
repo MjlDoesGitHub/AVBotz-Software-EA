@@ -7,6 +7,9 @@
 
 using namespace std;
 
+ifstream inFile;
+ofstream outFile;
+
 int minimalCoins(int values[],int y,int x) {
     //Using array to output the minimum amount of coins that is required for the input
     int change[x+1];
@@ -26,17 +29,17 @@ int minimalCoins(int values[],int y,int x) {
 
 int main()
 {
-    //Open Input File "coins.in"
-    ifstream inFile;
-    inFile.open("coins.in");
-
     //Check For Error
     if(inFile.fail()) {
-        cerr << "Error Opening File" << endl;
+        cout << "\nError Opening File" << endl;
         exit(1);
     } else {
-        cerr<< "File Successfully Opened" << endl;
+        cout<< "\nFile Successfully Opened" << endl;
     }
+
+    //Open Input File "coins.in"
+    cout << "\nPlease input values into 'sum.in'" << endl;
+    inFile.open("coins.in");
 
     //Define Input Coin Value as "x"
     float x;
@@ -44,13 +47,13 @@ int main()
     cout << "Input Coin Value: " << x << " cents" << endl;
 
     //Work with coins
-    int values[] = {1,5,10,25}; //Use a set of coin values we can use
+    int values[] = {1,5,10,25}; //Values of coins we can use)
     int n = sizeof(values)/sizeof(values[0]);
     int minimal = minimalCoins(values,n,x);
-    cout<<"\nMinimal useage of coins required: " << minimal; cout <<endl;
+    cout<<"\nMinimal usage of coins required: " << minimal; cout <<endl;
 
     //Write final output to file "coins.out"
-    ofstream outFile;
+    cout << "See file 'coins.out' for final output" << endl;
     outFile.open("coins.out");
     outFile << minimal;
     outFile.close();
