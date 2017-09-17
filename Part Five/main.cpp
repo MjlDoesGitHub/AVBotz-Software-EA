@@ -3,10 +3,8 @@
 
 using namespace std;
 
-
 int main()
 {
-
     double processVariable; //pv = desired height
     double setPoint = getHeight(); //sp = current height
 
