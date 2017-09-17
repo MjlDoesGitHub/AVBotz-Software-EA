@@ -9,7 +9,7 @@ using namespace std;
     ofstream outFile;
 
 int minimalCoins(int values[],int y,int x) {
-    //Using array to output the minimum amount of coins that is required for the input
+    //using array to output the minimum amount of coins that is required for the input
     int change[x+1];
     change[0] = 0;
     int i,z;
@@ -19,7 +19,7 @@ int minimalCoins(int values[],int y,int x) {
             if(z>=values[i] && (change[z-values[i]]+1) < minimal)
                 minimal = change[z-values[i]]+1;
         }
-        //Output the least amount of coins to match our input using variable "z"
+        //output the least amount of coins to match our input using variable "z"
         change[z] = minimal;
     }
     return change[x];
@@ -28,7 +28,7 @@ int minimalCoins(int values[],int y,int x) {
 
 int main() {
 
-    //Check for error when opening file
+    //check for error when opening file
     if(inFile.fail()) {
         cout << "\nError Opening File" << endl;
         exit(1);
@@ -36,11 +36,11 @@ int main() {
         cout<< "\nFile Successfully Opened" << endl;
     }
 
-    //Open input file "coins.in"
+    //open input file "coins.in"
     cout << "\nPlease input values in file 'coins2.in'" << endl;
     inFile.open("coins2.in");
 
-    //Define amount of dollars as "x" and coin inputs as variables "a-d"
+    //define amount of dollars as "x" and coin inputs as variables "a-d"
     float x;
     inFile >> x;
     cout << "\nAmount of Dollars: " << x << " dollars" << endl;
@@ -57,13 +57,13 @@ int main() {
     inFile >> d;
     cout << "Input Coin Value #4: " << d << " coins" << endl;
 
-    //Work with coins
-    int values[] = {a,b,c,d}; //Use a set of coin values we can use
+    //work with coins
+    int values[] = {a,b,c,d}; //use a set of coin values we can use
     int n = sizeof(values)/sizeof(values[0]);
     int minimal = minimalCoins(values,n,x);
     cout << "\nMin no. of coins required: " << minimal; cout << endl;
 
-    //Write final output to file "coins.out"
+    //write final output to file "coins.out"
     cout << "Read file 'coins2.out' for final output" << endl;
     outFile.open("coins2.out");
     outFile << minimal;
