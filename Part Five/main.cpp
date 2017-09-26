@@ -1,6 +1,9 @@
 #include <iostream>
 #include "pid.hpp"
 
+//pid is used to find the error between the setpoint (current height) and the process variable (desired height) to calculate the desired output of the controller
+//derivative - short term changes | intergral - long term changes
+
 using namespace std;
 
 int main()
@@ -22,6 +25,7 @@ int main()
     double KD = 0;
     double DT = 0.1;
 
+    //used to limit the output to a controlled size
     double minimum = -255;
     double maximum = 255;
 
