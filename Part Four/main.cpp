@@ -1,11 +1,6 @@
 #include <iostream>
 #include <fstream>
 
-/*
-I forgot to program the action to move up and left. 
-From what I know so far, you can only move down and right from top left to bottom right but it will still work flawlessly.
-*/
-
 using namespace std;
 
 int main() {
@@ -67,9 +62,9 @@ int main() {
 
     //Write final output to file "sum.out"
     int output = mNum[r-1][c-1];
-    outFile << output-1 << endl; //output always returned value with a +1, i don't know why that is but this seems to work
+    outFile << output << endl;
     outFile.close();
-    cout << "Minimum cost path from top left to bottom right: " << output-1 << endl;
+    cout << "Minimum cost path from top left to bottom right: " << output << endl;
     cout << "Check 'sum.out' for minimum cost path" << endl;
 
     return 0;
