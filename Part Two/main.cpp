@@ -8,7 +8,7 @@ using namespace std;
 ifstream inFile;
 ofstream outFile;
 
-//using intergers for this one... not precise
+//using intergers for this one... not precise but does the job
 
 int minimalCoins(int values[],int y,int x) {
     //using array/table to output the minimum amount of coins that is required for the input
