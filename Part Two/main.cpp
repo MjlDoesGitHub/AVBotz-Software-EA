@@ -8,7 +8,11 @@ using namespace std;
 ifstream inFile;
 ofstream outFile;
 
-//using intergers for this one... not precise but does the job
+/*
+input = x
+coins we can use = values[]
+using intergers for this one... not precise but does the job
+*/
 
 int minimalCoins(int values[],int y,int x) {
     //using array/table to output the minimum amount of coins that is required for the input
@@ -48,7 +52,7 @@ int main()
     cout << "\nPlease input values into 'sum.in'" << endl;
     inFile.open("coins.in");
 
-    //define input coin value as "x"
+    //get coin value from input file and define as "x"
     float x;
     inFile >> x;
     cout << "Input Coin Value: " << x << " cents" << endl;
