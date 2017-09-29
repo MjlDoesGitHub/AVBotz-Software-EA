@@ -9,18 +9,18 @@ using namespace std;
     ofstream outFile;
 
 int minimalCoins(int values[],int y,int x) {
-    //using array to output the minimum amount of coins that is required for the input
+    //using array (change[x]) to output the minimum amount of coins that is required for the input
     int change[x+1];
     change[0] = 0;
     int i,z;
-    for(z=1;z<=x;z++) {
-        int minimal = 9999;
-        for(i=0;i<y;i++) {
-            if(z>=values[i] && (change[z-values[i]]+1) < minimal)
+    for(z=1;z<=x;z++) { //for z is less than or equal to x, repeat this function
+        int minimal = 9999; //inf array values
+        for(i=0;i<y;i++) { //go through all coins smaller than x
+            if(z>=values[i] && (change[z-values[i]]+1) < minimal) //recursion
                 minimal = change[z-values[i]]+1;
-        }
-        //output the least amount of coins to match our input using variable "z"
-        change[z] = minimal;
+        } 
+        change[z] = minimal; //set the final output
+        
     }
     return change[x];
 }
@@ -41,6 +41,7 @@ int main() {
     inFile.open("coins2.in");
 
     //define amount of dollars as "x" and coin inputs as variables "a-d"
+    //basically taking a set of denominations except from the input file similar to the last problem
     float x;
     inFile >> x;
     cout << "\nAmount of Dollars: " << x << " dollars" << endl;
@@ -59,11 +60,11 @@ int main() {
 
     //work with coins
     int values[] = {a,b,c,d}; //use a set of coin values we can use
-    int n = sizeof(values)/sizeof(values[0]);
-    int minimal = minimalCoins(values,n,x);
+    int n = sizeof(values)/sizeof(values[0]); //calculate the number of elements in an array
+    int minimal = minimalCoins(values,n,x); //coins we can use, elements in array, amount of dollars
     cout << "\nMin no. of coins required: " << minimal; cout << endl;
 
-    //write final output to file "coins.out"
+    //write final output to file "coins2.out"
     cout << "Read file 'coins2.out' for final output" << endl;
     outFile.open("coins2.out");
     outFile << minimal;
