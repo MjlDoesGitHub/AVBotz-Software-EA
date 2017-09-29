@@ -29,17 +29,17 @@ int main() {
     cout << "Amount of Rows: " << r << " Rows" << endl;
     cout << "Amount of Columns: " << c << " Columns" << endl;
 
-    //display and define grid
+    //display and get grid values from input file
     int mNum[r][c];
     int matrix[r][c];
-    for (int i = 0; i < r; i++) {
-        for (int j = 0; j < c; j++) {
-            inFile >> matrix[i][j];
-            cout << matrix[i][j] << " ";
-
+    for (int i = 0; i < r; i++) { //repeat to get rows
+        for (int j = 0; j < c; j++) { //repeat to get columns
+            inFile >> matrix[i][j]; //open file and define matrix
+            cout << matrix[i][j] << " "; //read every value and add space to seperate
+         
         }
         cout << endl;
-        mNum[0][0] = matrix[0][0];
+        mNum[0][0] = matrix[0][0]; //mNum = r, c / matrix = values of grid
     }
 
     //check if matrix values are valid, if not––return 0
@@ -51,11 +51,11 @@ int main() {
         int y;
 
         //find minimum cost path in matrix
-        for (x = 0; x < r && x < c; x++) {
-            mNum[0][x] = mNum[0][x - 1] + matrix[0][x];
+        for (x = 0; x < r && x < c; x++) { //if x is less than rows and columns, repeat
+            mNum[0][x] = mNum[0][x - 1] + matrix[0][x]; 
             mNum[x][0] = mNum[x - 1][0] + matrix[x][0];
             for (y = 0; y < c; y++) {
-                mNum[x][y] = min(mNum[x - 1][y], mNum[x][y - 1]) + matrix[x][y];
+                mNum[x][y] = min(mNum[x - 1][y], mNum[x][y - 1]) + matrix[x][y]; //find minimum cost path
             }
         }
     }
